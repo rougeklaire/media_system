@@ -2,6 +2,7 @@ from tkinter import *
 import webbrowser
 from tkvideo import tkvideo
 import subprocess
+from spotify_login_chromium import spotify_login
 
 class main_window:
 
@@ -9,7 +10,7 @@ class main_window:
         # initialize base variables
         self.root = Tk()
         self.window_size = self.root.geometry("2000x1010")
-        self.root.title("Test Version")
+        self.root.title("Home Entertainment System")
         self.welcome_text = Label(self.root, text = "Test Version Entertainment Hub", font = ("Times New Roman", 30))
         self.user1 = "Sven"
         self.user2 = "Julian"
@@ -20,7 +21,7 @@ class main_window:
         self.background_image = PhotoImage(file = self.basepath + "/background_pi.png")
         self.background_label = Label(self.root, image = self.background_image)
         self.spotify_image = PhotoImage(file = f"{self.basepath}/spotify_logo.png")
-        self.netflix_image = PhotoImage(file = f"{self.basepath}/netflix_logo.png")
+        self.netflix_image = PhotoImage(file = self.basepath + "/netflix_logo.png")
         self.games_image = PhotoImage(file = f"{self.basepath}/game_logo.png")
         self.fireplace_button_image = PhotoImage(file = f"{self.basepath}/Fireplace.png")
         self.disney_image = PhotoImage(file = f"{self.basepath}/disney_logo.png")
@@ -28,8 +29,8 @@ class main_window:
         self.youtube_image = PhotoImage(file = f"{self.basepath}/youtube_image.png")
         self.pong_button_image = PhotoImage(file = f"{self.basepath}/pong.png")
         self.game_background = PhotoImage(file = f"{self.basepath}/game_window_background.png")
-        self.user1_image = PhotoImage(file = f"{self.basepath}/user1.png")
-        self.user2_image = PhotoImage(file = f"{self.basepath}/user2.png")
+        self.user1_image = PhotoImage(file = self.basepath + "/user1.png")
+        self.user2_image = PhotoImage(file = self.basepath + "/user2.png")
         self.power_button_image = PhotoImage(file = f"{self.basepath}/power_button.png")
         # create buttons
         self.spotify_button = Button(self.root, image = self.spotify_image, width = 200, height = 200, command = self.open_spotify)

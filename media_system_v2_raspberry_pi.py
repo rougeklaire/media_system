@@ -13,6 +13,7 @@ class main_window:
         self.window_size = self.root.geometry("1200x900")
         self.root.title("Test Version")
         ck.set_default_color_theme("green")
+        ck.set_appearance_mode("Dark")
         self.welcome_text = ck.CTkLabel(self.root, text = "Entertainment Hub", font = ("Arial", 30))
         self.user1 = "Sven"
         self.user2 = "Julian"
@@ -46,7 +47,7 @@ class main_window:
         self.user1_button = ck.CTkButton(self.root, text = "Sven", image = self.user1_image, width = 100, height = 100, command = lambda m = f"{self.user1} logged in": self.show_logged_in_user(m))
         self.user2_button = ck.CTkButton(self.root, text = "Julian", image = self.user2_image, width = 100, height = 100, command = lambda m = f"{self.user2} logged in": self.show_logged_in_user(m))
         self.power_button = ck.CTkButton(self.root, text = "power off", image = self.power_button_image, width = 100, height = 100, command = self.power_off)
-        self.appearance_mode_menu = ck.CTkOptionMenu(self.root, values = ["System", "Dark", "Light"], command = self.change_appearance_mode)
+        self.appearance_mode_menu = ck.CTkOptionMenu(self.root, values = ["Dark", "Light", "System"], command = self.change_appearance_mode)
         #create description labels
         self.spotify_label = ck.CTkLabel(self.root, text = "Spotify")
         self.netflix_label = ck.CTkLabel(self.root, text = "Netflix")
@@ -69,10 +70,10 @@ class main_window:
         self.fireplace_button.grid(column = 4, row = 2)
         self.game_button.grid(column = 5, row = 2)
         self.youtube_button.grid(column = 6, row = 2)
-        self.user1_button.grid(column = 0, row = 5)
-        self.user2_button.grid(column = 1, row = 5)
-        self.power_button.grid(column = 6, row = 5)
-        self.appearance_mode_menu.grid(row = 3, column = 3)
+        self.user1_button.grid(column = 0, row = 6)
+        self.user2_button.grid(column = 1, row = 6)
+        self.power_button.grid(column = 6, row = 6)
+        self.appearance_mode_menu.grid(column = 5, row = 6)
         # place description labels on screen
         self.spotify_label.grid(column = 0, row = 3)
         self.netflix_label.grid(column = 1, row = 3)
@@ -81,8 +82,8 @@ class main_window:
         self.fireplace_label.grid(column = 4, row = 3)
         self.games_label.grid(column = 5, row = 3)
         self.youtube_label.grid(column = 6, row = 3)
-        self.login_label.grid(column = 0, row = 4, columnspan = 2)
-        self.appearance_mode_label.grid(row = 2, column = 3)
+        self.login_label.grid(column = 0, row = 5, columnspan = 2)
+        self.appearance_mode_label.grid(column = 5, row = 5)
 
     def loop_main_window(self):
             self.root.mainloop()
@@ -125,7 +126,7 @@ class main_window:
 
     def show_logged_in_user(self, logged_in_user):
         user_label = ck.CTkLabel(self.root, text = logged_in_user, width = 15, height = 2)
-        user_label.grid(column = 3, row = 5)
+        user_label.grid(column = 2, row = 5)
 
         if logged_in_user == self.user1:
              self.user1_logged_in = True

@@ -13,29 +13,29 @@ class main_window:
         self.window_size = self.root.geometry("1200x900")
         self.root.title("Test Version")
         ck.set_default_color_theme("green")
-        self.welcome_text = ck.CTkLabel(self.root, text = "Test Version Entertainment Hub", font = ("Arial", 30))
+        self.welcome_text = ck.CTkLabel(self.root, text = "Entertainment Hub", font = ("Arial", 30))
         self.user1 = "Sven"
         self.user2 = "Julian"
         self.user1_logged_in = False
         self.user2_logged_in = False
-        # create image objects
+        #create image objects
         self.button_picturesize = (100, 100)
-        self.basepath = r"C:\Users\Sven\Desktop\Programming\Python\Projects\Raspberry_pi\Ent_System\Assets"
-        #self.background_image = ck.CTkImage(light_image = Image.open(self.basepath + r"\background_pi.png"), size = (1200, 900))
+        self.basepath = "home/rougeklaire/media_system/Assets"
+        #self.background_image = ck.CTkImage(light_image = Image.open(self.basepath + "/background_pi.png"), size = (1200, 900))
         #self.background_label = ck.CTkLabel(self.root, image = self.background_image)
-        self.spotify_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\spotify_logo.png"), size = self.button_picturesize)
-        self.netflix_image = ck.CTkImage(light_image = Image.open(self.basepath + r"\netflix_logo.png"), size = self.button_picturesize)
-        self.games_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\game_logo.png"), size = self.button_picturesize)
-        self.fireplace_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\Fireplace.png"), size = self.button_picturesize)
-        self.disney_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\disney_logo.png"), size = self.button_picturesize)
-        self.prime_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\prime_logo.png"), size = self.button_picturesize)
-        self.youtube_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\youtube_image.png"), size = self.button_picturesize)
-        self.pong_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\pong.png"), size = self.button_picturesize)
-        self.game_background = ck.CTkImage(light_image = Image.open(f"{self.basepath}\game_window_background.png"), size = self.button_picturesize)
-        self.user1_image = ck.CTkImage(light_image = Image.open(self.basepath + r"\user1.png"), size = self.button_picturesize)
-        self.user2_image = ck.CTkImage(light_image = Image.open(self.basepath + r"\user2.png"), size = self.button_picturesize)
-        self.power_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}\power_button.png"), size = self.button_picturesize)
-        # create buttons
+        self.spotify_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/spotify_logo.png"), size = self.button_picturesize)
+        self.netflix_image = ck.CTkImage(light_image = Image.open(self.basepath + "/netflix_logo.png"), size = self.button_picturesize)
+        self.games_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/game_logo.png"), size = self.button_picturesize)
+        self.fireplace_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/Fireplace.png"), size = self.button_picturesize)
+        self.disney_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/disney_logo.png"), size = self.button_picturesize)
+        self.prime_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/prime_logo.png"), size = self.button_picturesize)
+        self.youtube_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/youtube_image.png"), size = self.button_picturesize)
+        self.pong_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/pong.png"), size = self.button_picturesize)
+        self.game_background = ck.CTkImage(light_image = Image.open(f"{self.basepath}/game_window_background.png"), size = self.button_picturesize)
+        self.user1_image = ck.CTkImage(light_image = Image.open(self.basepath + "/user1.png"), size = self.button_picturesize)
+        self.user2_image = ck.CTkImage(light_image = Image.open(self.basepath + "/user2.png"), size = self.button_picturesize)
+        self.power_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/power_button.png"), size = self.button_picturesize)
+        #create buttons
         self.spotify_button = ck.CTkButton(self.root, text = "Spotify", image = self.spotify_image, width = 200, height = 200, command = self.open_spotify)
         self.netflix_button = ck.CTkButton(self.root, text = "Netflix", image = self.netflix_image, width = 200, height = 200, command = self.open_netflix)
         self.game_button = ck.CTkButton(self.root, text = "Games", image = self.games_image, width = 200, height = 200, command = self.main_games_window)
@@ -58,7 +58,7 @@ class main_window:
 
     def place_items_on_window(self):
         #self.background_label.place(y = 0, x = 0)
-        # place buttons on screen
+        #place buttons on screen
         self.welcome_text.grid(column = 0, row = 1, columnspan = 6)
         self.spotify_button.grid(column = 0, row = 2)
         self.netflix_button.grid(column = 1, row = 2)

@@ -20,7 +20,7 @@ class main_window:
         self.user2_logged_in = False
         #create image objects
         self.button_picturesize = (100, 100)
-        self.basepath = "home/rougeklaire/media_system/Assets"
+        self.basepath = "/home/rougeklaire/media_system/Assets"
         #self.background_image = ck.CTkImage(light_image = Image.open(self.basepath + "/background_pi.png"), size = (1200, 900))
         #self.background_label = ck.CTkLabel(self.root, image = self.background_image)
         self.spotify_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/spotify_logo.png"), size = self.button_picturesize)
@@ -35,7 +35,7 @@ class main_window:
         self.user1_image = ck.CTkImage(light_image = Image.open(self.basepath + "/user1.png"), size = self.button_picturesize)
         self.user2_image = ck.CTkImage(light_image = Image.open(self.basepath + "/user2.png"), size = self.button_picturesize)
         self.power_button_image = ck.CTkImage(light_image = Image.open(f"{self.basepath}/power_button.png"), size = self.button_picturesize)
-        #create buttons
+        #create buttons/menus etc.
         self.spotify_button = ck.CTkButton(self.root, text = "Spotify", image = self.spotify_image, width = 200, height = 200, command = self.open_spotify)
         self.netflix_button = ck.CTkButton(self.root, text = "Netflix", image = self.netflix_image, width = 200, height = 200, command = self.open_netflix)
         self.game_button = ck.CTkButton(self.root, text = "Games", image = self.games_image, width = 200, height = 200, command = self.main_games_window)
@@ -46,6 +46,7 @@ class main_window:
         self.user1_button = ck.CTkButton(self.root, text = "Sven", image = self.user1_image, width = 100, height = 100, command = lambda m = f"{self.user1} logged in": self.show_logged_in_user(m))
         self.user2_button = ck.CTkButton(self.root, text = "Julian", image = self.user2_image, width = 100, height = 100, command = lambda m = f"{self.user2} logged in": self.show_logged_in_user(m))
         self.power_button = ck.CTkButton(self.root, text = "power off", image = self.power_button_image, width = 100, height = 100, command = self.power_off)
+        self.appearance_mode_menu = ck.CTkOptionMenu(self.root, values = ["System", "Dark", "Light"], command = self.change_appearance_mode)
         #create description labels
         self.spotify_label = ck.CTkLabel(self.root, text = "Spotify")
         self.netflix_label = ck.CTkLabel(self.root, text = "Netflix")
@@ -55,6 +56,7 @@ class main_window:
         self.games_label = ck.CTkLabel(self.root, text = "Games")
         self.youtube_label = ck.CTkLabel(self.root, text = "YouTube")
         self.login_label = ck.CTkLabel(self.root, text = "CLICK TO LOG IN USER", font = ("Arial", 15))
+        self.appearance_mode_label = ck.CTkLabel(self.root, text = "Appearance Mode:", anchor="w")
 
     def place_items_on_window(self):
         #self.background_label.place(y = 0, x = 0)
@@ -70,6 +72,7 @@ class main_window:
         self.user1_button.grid(column = 0, row = 5)
         self.user2_button.grid(column = 1, row = 5)
         self.power_button.grid(column = 6, row = 5)
+        self.appearance_mode_menu.grid(row = 3, column = 3)
         # place description labels on screen
         self.spotify_label.grid(column = 0, row = 3)
         self.netflix_label.grid(column = 1, row = 3)
@@ -79,7 +82,7 @@ class main_window:
         self.games_label.grid(column = 5, row = 3)
         self.youtube_label.grid(column = 6, row = 3)
         self.login_label.grid(column = 0, row = 4, columnspan = 2)
-
+        self.appearance_mode_label.grid(row = 2, column = 3)
 
     def loop_main_window(self):
             self.root.mainloop()
@@ -131,6 +134,9 @@ class main_window:
         elif logged_in_user == self.user2:
             self.user1_logged_in = False
             self.user2_logged_in = True
+
+    def change_appearance_mode(self, new_appearance_mode: str):
+        ck.set_appearance_mode(new_appearance_mode)
 
     def power_off(self):
         #subprocess.run(["shutdown", "+0"])

@@ -61,7 +61,7 @@ class main_window:
     def place_items_on_window(self):
         #self.background_label.place(y = 0, x = 0)
         #place buttons on screen
-        self.welcome_text.grid(column = 0, row = 1, columnspan = 6)
+        self.welcome_text.grid(column = 0, row = 1, columnspan = 7)
         self.spotify_button.grid(column = 0, row = 2)
         self.netflix_button.grid(column = 1, row = 2)
         self.disney_plus_button.grid(column = 2, row = 2)
